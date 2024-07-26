@@ -14,4 +14,4 @@ jobs:
     - name: Delete Old docker container
       run: sudo docker rm -f first-container || true
     - name: Run Docker Container
-      run: sudo docker run -d -p 8080:8090 --name first-container ramesh27/first
+      run: sudo docker run -d -p 8090:8090 --name first-container ramesh27/first
