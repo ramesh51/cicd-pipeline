@@ -1,4 +1,4 @@
-name: CD Pipeline
+name: aws ec2
 
 on:
   workflow_run:
