@@ -1,0 +1,19 @@
+name: Build pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: connect docker 
+      env:
+        DOCKER_UNAME: ${{secrets.DOCKER_UNAME}}
+        DOCKER_PWD: ${{secrets.DOCKER_PWD}}
+      run: docker login -u $DOCKER_UNAME -p $DOCKER_PWD
+    - name: Build the Docker image
+      run: docker build -t ramesh27/first .
+    - name: push the image
+      run: docker push ramesh27/first:latest
